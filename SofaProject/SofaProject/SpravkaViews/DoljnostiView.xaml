@@ -1,0 +1,63 @@
+﻿<Window x:Class="SofaProject.SpravkaViews.DoljnostiView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SofaProject.SpravkaViews"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Должности" Height="460" Width="569" StateChanged="Window_StateChanged">
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Left">
+            <DataGrid
+                Height="414"
+                FontSize="12"
+                Name="GridDoljnosti"
+                VerticalScrollBarVisibility="Auto"
+                AutoGenerateColumns="False"
+                Width="370">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding Name}"  Width ="*"/>
+                    <DataGridTextColumn Header="Должность" Binding="{Binding Post.Title}"  Width ="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel 
+            HorizontalAlignment="Right">
+            <TextBlock
+                Text="Сотрудник:"/> 
+
+            <TextBox
+                Width="160"
+                Name="TxtSotrydnik"
+                />
+            <TextBlock
+                Text="Должность:"/>
+            <ComboBox
+                Width="160"
+                x:Name="CmbDoljnost"/>
+            <TextBlock
+                Text="Пароль"/>
+            <PasswordBox
+                Width="160"
+                Name="PsbSotrydnik"/>
+            <Button
+                Width="160"
+                Click="BtnAdd_Click"
+                Content="Добавить"
+                Name="BtnAdd"
+                />
+            <Button
+                Width="160"
+                Click="BtnSave_Click"
+                Content="Редактировать/Сохранить"
+                Name="BtnSave"/>
+            <Button
+                Width="160"
+                Content="Удалить"
+                Name="BtnDel"
+                Click="BtnDel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

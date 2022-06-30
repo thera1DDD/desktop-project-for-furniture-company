@@ -1,0 +1,146 @@
+﻿<Window x:Class="SofaProject.Director.WindowNewOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SofaProject.Director"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Новый заказ" Height="615" Width="668.5" StateChanged="Window_StateChanged">
+    <Grid>
+        <StackPanel
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" Margin="10,65,0,0" Height="480">
+            <StackPanel
+                Orientation ="Horizontal"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Width="120"
+                    Text="Принимал заказ:"/>
+                <ComboBox
+                    Name="CmbPrinimal"
+                    SelectionChanged="CmbClients_SelectionChanged"
+                    />
+            </StackPanel>
+            <StackPanel
+                Orientation ="Horizontal"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Width="120"
+                    Text="Клиент:"/>
+                <ComboBox
+                    Name="CmbClients"
+                    SelectionChanged="CmbClients_SelectionChanged"
+                    />
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Width="120"
+                    Text="Скидка клиента:"/>
+                <TextBox
+                    Name="TxtDiscount"
+                    />
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Width="120"
+                    Text="Группа изделий:"/>
+                <ComboBox
+                    SelectionChanged="CmbMebelGroup_SelectionChanged"
+                    Name="CmbMebelGroup"
+                    />
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Width="120"
+                    Text="Изделие:"/>
+                <ComboBox
+                    SelectionChanged="CmbMebelTitle_SelectionChanged"
+                    Name="CmbMebelTitle"
+                    />
+            </StackPanel>
+
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Width="120"
+                    Text="Количество:"/>
+                <TextBox
+                    Name="TxtCoutMebel"
+                    />
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Width="120"
+                    Text="Исполнитель:"/>
+                <ComboBox
+                    Name="CmbMaster"
+                    />
+            </StackPanel>
+            <StackPanel
+                Orientation="Vertical"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left">
+                <Button
+                   Width="110"
+                   Content="К заказу"
+                   x:Name="BtnEnterOrder"
+                   Click="BtnEnterOrder_Click"/>
+                <Button Click="BtnAddOrder_Click" x:Name="BtnAddOrder" Content="Добавить"  Width="109" />
+                <Button x:Name="BtnPrint" Click="BtnPrint_Click" Content="Печать"   Width="109" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+            VerticalAlignment="Top"
+            Name="DataContextPrint"
+            HorizontalAlignment="Right" 
+           >
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center">
+                <TextBlock Text="Итог: " FontSize="15" />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Наименование товара:" Height="28"/>
+                <TextBox  Height="35" Name="TxtNameIzdelie"  Width="340" />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Количество:" Height="29"/>
+                <TextBox Name="TxtCountItog"  Height="35"  Width="340"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Дата выполнения позиции:"  Height="29"/>
+                <TextBox Name="TxtDataEndItog"  Height="35"  Width="340"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Стоимость позиции:"  Height="29"  />
+                <TextBox Name="TxtSummaItog" Height="35"    Width="340"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Дата заказа:"  Height="35"/>
+                <TextBox Name="TxtDateStartOrderItog"  Height="35"   Width="340"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Стоимость  со скидкой:" Height="28"/>
+                <TextBox Height="35" Name="TxtDiscountPriceItog" Width="340" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

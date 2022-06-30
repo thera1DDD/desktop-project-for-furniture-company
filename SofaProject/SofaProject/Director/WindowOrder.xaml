@@ -1,0 +1,150 @@
+﻿<Window x:Class="SofaProject.Director.WindowOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SofaProject.Director"
+        mc:Ignorable="d"
+        Title="Окно заказов"
+        WindowStartupLocation="CenterScreen"
+        Width="1200"
+        Height="600">
+        
+    <Grid>
+        <Grid.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="DarkGray" />
+        </Grid.Resources>
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+            <Menu 
+                    Background="White"
+                    Name="MenuItemProg"
+                    Width="75"
+                    Height="25">
+                <MenuItem Header="Программа">
+                        <MenuItem Header="Выход" Click="MenuItem_Click"></MenuItem>
+                </MenuItem>
+                </Menu>
+            <Menu
+                    Background="White"
+                    Width="50"
+                    Height="25"
+                    Name="MenuItemPrice"
+                    >
+                <MenuItem
+                    Click="MenuItem_Click_3"
+                    Header="Прайс">
+                </MenuItem>
+            </Menu>
+            <Menu
+                    Background="White"
+                    Width="78"
+                    Height="25"
+                    Name="MenuSpravochnik"
+                    >
+                <MenuItem Header="Справочник" Width="75">
+                    <MenuItem Header="Реквизиты фирмы" Name="MenuRekvizits" Click="MenuRekvizits_Click" ></MenuItem>
+                    <MenuItem Header="Клиенты" Name="MenuClientItems" Click="MenuClientItems_Click"></MenuItem>
+                    <MenuItem Header="Должности" Name="MenuDoljnostiItems" Click="MenuDoljnostiItems_Click"></MenuItem>
+                </MenuItem>
+                
+            </Menu>
+            <Menu
+                    Background="White"
+                    Width="100"
+                    Name="MenuAbout"
+                    Height="25">
+                <MenuItem Name="MenuAboutItem" Click="MenuAboutItem_Click" Header="О программе">
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+            <StackPanel>
+                <DataGrid
+                    IsReadOnly="False"
+                    Margin="3,35,0,35"
+                    x:Name="GridOrderList"
+                    Height="482"
+                    FontSize="14"
+                    AutoGenerateColumns="False"
+                    VerticalScrollBarVisibility="Auto"
+                    >
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="White"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Status}" Value="Готов">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="LightGreen"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Status}" Value="Не готов">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="IndianRed"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Status}" Value="Отменен">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="DimGray"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.ItemContainerStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Header="Номер заказа" Binding="{Binding ID_Order}" Width="*" />
+                    <DataGridTextColumn Header="Дата заказа" Binding="{Binding DateStart, StringFormat=dd.MM.yyyy}" Width="*" />
+                    <DataGridTextColumn Header="Дата готовности" Binding="{Binding DateEnd, StringFormat=dd.MM.yyyy}" Width="*" />
+                    <DataGridTextColumn Header="Стоимость" Binding="{Binding PriceFull}" Width="*" />
+                    <DataGridTextColumn Header="С учётом скидки" Binding="{Binding PriceDiscount}" Width="*" />
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="*" />
+                    <DataGridTextColumn Header="Клиент" Binding="{Binding Client.Title}" Width="*" />
+                    <DataGridTextColumn Header="Заказ принимал" Binding="{Binding Employee.Name}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom">
+            <Button
+                Name="BtnViewDetails"
+                Content="Просмотр деталей"
+                Click="BtnViewDetails_Click"/>
+            <Button
+                Click="BtnEditOrder_Click"
+                Content="Редактировать заказ"
+                Name="BtnEditOrder"/>
+            <Button
+                Name="BtnNewOrder"
+                Click="BtnNewOrder_Click"
+                Content="Новый заказ"/>
+            <Button
+                Name="BtnUpdate"
+                Click="BtnUpdate_Click"
+                Content="Обновить"/>
+            <Button
+                Click="BtnDelete_Click"
+                Content="Удалить"
+                Name="BtnDelete"/>
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom">
+            <Button
+                Click="BtnExit_Click"
+                Content="Выход"
+                Name="BtnExit"/>
+        </StackPanel>
+        <StackPanel
+                VerticalAlignment="Bottom"
+                Orientation="Horizontal">
+            <TextBlock
+                    Text="Текущий пользователь: "/>
+            <TextBlock
+                Width="1040"
+                FontWeight="DemiBold"
+                Text="ФИО"
+                Name="LabelCurrentUser"/>
+        </StackPanel>
+    </Grid>
+</Window>

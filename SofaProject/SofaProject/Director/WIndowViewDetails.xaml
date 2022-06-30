@@ -1,0 +1,82 @@
+﻿<Window x:Class="SofaProject.Director.WIndowViewDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SofaProject.Director"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Подробности заказа" Height="450" Width="1200" Loaded="Window_Loaded" StateChanged="Window_StateChanged">
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock
+                Text="Заказ #:"
+                    Width="120"
+                />
+                <TextBox
+                Name="TxtIdOrder"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock
+                Text="Заказчик:"
+                    Width="120"
+                />
+                <TextBox
+                    Name="TxtClient"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock
+                    Width="120"
+                    Text="Дата заказа:"/>
+                <TextBox
+                    Name="TxtOrderDate"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock
+                    Width="120"
+                    Text="Сумма по заказу:"/>
+                <TextBox
+                    Name="TxtOrderPrice"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock
+                    Width="120"
+                    Text="Дата требования"/>
+                <TextBox
+                    Name="TxtOrderDateEnd"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock
+                    Width="120"
+                    Text="Сумма с уч. скидки:"/>
+                <TextBox
+                    Name="TxtDiscountPrice"/>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid
+            Width="900"
+            AutoGenerateColumns="False"
+            HorizontalAlignment="Right"
+            Name="GridOrderDetails"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Price.Title}"/>
+                <DataGridTextColumn Header="Количество" Width="*" Binding="{Binding Count }"/>
+                <DataGridTextColumn Header="Дата выполнения позиции" Width="*" Binding="{Binding PositionDateEnd}"/>
+                <DataGridTextColumn Header="Стоимость позиции" Width="*" Binding="{Binding PricePosition}"/>
+                <DataGridTextColumn Header="Стоимость со скидкой" Width="*" Binding="{Binding PriceDiscount}"/>
+                <DataGridTextColumn Header="Мастер" Width="*" Binding="{Binding Employee.Name}"/>
+                <DataGridTextColumn Header="Test" Width="*" Binding="{Binding  TemporaryOrderDetails.Count}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

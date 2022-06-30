@@ -1,0 +1,99 @@
+﻿<Window x:Class="SofaProject.SpravkaViews.ClientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SofaProject.SpravkaViews"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Клиенты" Height="585" Width="800" StateChanged="Window_StateChanged">
+    <Grid>
+        <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Top">
+            <TextBlock
+                Text="Поиск: "/>
+            <TextBox
+                TextChanged="TxtSearchClients_TextChanged"
+                Width="355"
+                Name="TxtSearchClients"/>
+        </StackPanel>
+        <StackPanel
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <DataGrid
+            Name="GridClients"
+            AutoGenerateColumns="False"
+            VerticalScrollBarVisibility="Auto"
+            BeginningEdit="GridClients_BeginningEdit"
+            Width="400"
+            Height="500"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название организации" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Контактное лицо " Binding="{Binding ContactPerson}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+            <StackPanel
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Text="Название организации:"/>
+                <TextBox
+                    Width="300"
+                    x:Name="TxtTitleOrg"/>
+                <TextBlock 
+                    Text="Контактное лицо:"/>
+                <TextBox
+                    Width="300"
+                    x:Name="TxtContactPerson"/>
+                <TextBlock
+                    Text="Адрес:"/>
+                <TextBox
+                    Width="300"
+                    x:Name="TxtAddress"/>
+                <TextBlock
+                    Text="Телефон:"
+                    />
+                <TextBox
+                    Width="300"
+                    x:Name="TxtPhone"/>
+                <TextBlock
+                    Text="Заметки:"
+                    />
+                <TextBox
+                    Width="300"
+                    x:Name="TxtZametki"/>
+                <TextBlock
+                    Text="Скидка:"/>
+                <TextBox
+                    Width="300"
+                    x:Name="TxtDiscount"/>
+                <TextBlock
+                    Text="Код ИНН:"/>
+                <TextBox
+                    Width="300"
+                    x:Name="TxtCodeINN"/>
+                <TextBlock
+                    Text="Код КПП:"/>
+                <TextBox
+                    Width="300"
+                    x:Name="TxtCodeKPP"/>
+                <StackPanel HorizontalAlignment="Left">
+                    <Button
+                    Click="BtnAdd_Click"
+                    Content="Добавить"
+                    x:Name="BtnAdd"/>
+                    <Button
+                    Click="BtnSave_Click"
+                    Content="Сохранить"
+                    x:Name="BtnSave"/>
+                    <Button
+                    Click="BtnDel_Click"
+                    Content="Удалить"
+                    x:Name="BtnDel"/>
+                </StackPanel>
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

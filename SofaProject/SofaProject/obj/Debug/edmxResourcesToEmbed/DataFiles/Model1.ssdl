@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="Хранилище FurnitureDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+  <EntityType Name="Price">
+    <Key>
+      <PropertyRef Name="ID_Price" />
+    </Key>
+    <Property Name="ID_Price" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="ID_Group" Nullable="false" Type="int" />
+    <Property Name="Title" Nullable="false" MaxLength="350" Type="varchar" />
+    <Property Name="Size" MaxLength="50" Type="nvarchar" />
+    <Property Name="TimeCraft" Nullable="false" Type="int" />
+    <Property Name="Price" Nullable="false" Type="money" />
+    <Property Name="Foto" Type="varbinary(max)" />
+    <Property Name="Description" MaxLength="550" Type="nvarchar" />
+    <Property Name="InStock" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityContainer Name="Хранилище FurnitureDBModelContainer">
+    <EntitySet Name="Price" EntityType="Self.Price" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="SofaProject.Director.WindowAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SofaProject.Director"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="О программе" Height="300" Width="411">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+            <StackPanel
+                HorizontalAlignment="Center">
+                <Image Source= "/Resourses/menu.png" Height="93"/>
+            </StackPanel>
+            <StackPanel Height="169">
+                <TextBlock Text="Copyright ©  2021"
+                           FontSize="15"
+                           FontWeight="Bold"/>
+                <TextBlock Text="Автор: Абдулкадиров Тагир"
+                           Margin="0,10,0,10"
+                           FontSize="14"
+                           FontWeight="Bold"/>
+                <TextBlock Text="Дипломная работа"
+                           Margin="0,10,0,10"
+                           FontSize="14"
+                           FontWeight="Bold"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

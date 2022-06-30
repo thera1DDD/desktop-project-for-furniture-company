@@ -1,0 +1,63 @@
+﻿<Window x:Class="SofaProject.Director.WindowPrice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SofaProject.Director"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        Title="Товары" Height="700" Width="1100" StateChanged="Window_StateChanged">
+    <Grid>
+        <Grid.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="DarkGray" />
+        </Grid.Resources>
+        <StackPanel
+            VerticalAlignment="Top"
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            >
+            <TextBlock
+                Text="Поиск: "/>
+            <TextBox
+                Width="300"
+                TextChanged="TXtSearch_TextChanged"
+                x:Name="TXtSearch"/>
+        </StackPanel>
+        <StackPanel
+             VerticalAlignment="Bottom"
+            HorizontalAlignment="Left">
+            <DataGrid
+            FontSize="10pt"
+            Height="620"
+            Width="565"
+            Name="GridPrice"
+            VerticalScrollBarVisibility="Auto"
+            AutoGenerateColumns="False"
+            BeginningEdit="GridPrice_BeginningEdit">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="*" />
+                    <DataGridTextColumn Header="Размеры" Binding="{Binding Size}" Width="*" />
+                    <DataGridTextColumn Header="Время изготовления" Binding="{Binding TimeCraft}" Width="*" />
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price1}" Width="*" />
+                    <DataGridTextColumn Header="В наличии" Binding="{Binding InStock}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"  >
+            <Image
+                Name="PictureBoxPrice"
+                Height="365"  
+                VerticalAlignment="Bottom"
+                Width="510"/>
+            <TextBox
+                FontSize="10pt"
+                Name="txtDescription"
+                Height="250"
+                VerticalAlignment="Bottom"
+                Width="510"/>
+        </StackPanel>
+    </Grid>
+</Window>

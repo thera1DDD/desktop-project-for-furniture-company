@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище FurnitureDBModelContainer" CdmEntityContainer="FurnitureDBEntities1">
+    <EntitySetMapping Name="Price">
+      <EntityTypeMapping TypeName="FurnitureDBModel.Price">
+        <MappingFragment StoreEntitySet="Price">
+          <ScalarProperty Name="InStock" ColumnName="InStock" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Price1" ColumnName="Price" />
+          <ScalarProperty Name="TimeCraft" ColumnName="TimeCraft" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
+          <ScalarProperty Name="ID_Price" ColumnName="ID_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
